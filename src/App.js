@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import ApprovalCard from "./components/ApprovalCard";
+import Comment from "./components/Comment";
+import people from "./people";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='ui container comments'>
+      {people.map((person,index) => (
+        <ApprovalCard key={index}>
+          <Comment
+            author={person.author}
+            date={person.date}
+            content={person.content}
+          />
+        </ApprovalCard>
+      ))}
     </div>
   );
 }
-
-export default App;
